@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Becoming Her 2.0: IDENA — Register</title>
+<link rel="icon" type="image/png" href="assets/headwrap-silhouette.png">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@20..48,100..700,0..1">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--white);color:var(--ink);font-family:var(--font-body);overflow-x:hidden;
+    background-image:
+      radial-gradient(ellipse at 15% 8%, rgba(249,231,247,.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 25%, rgba(246,217,238,.35) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 60%, rgba(240,168,216,.1) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 90%, rgba(249,231,247,.4) 0%, transparent 40%);
+    background-attachment:fixed;
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size:180px 180px;
+    opacity:.022;
+  }
+  .material-symbols-rounded{font-family:'Material Symbols Rounded';font-variation-settings:'FILL' 1,'wght' 500,'opsz' 24;vertical-align:middle;line-height:1}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{position:relative}
+  ::selection{background:var(--magenta);color:#fff}
+  a{color:inherit}
+  /* ankara divider band */
+  .ankara{height:46px;background-image:url('assets/ankara-border.png');background-size:auto 100%;background-repeat:repeat-x;background-position:center}
+  @media(max-width:640px){.ankara{height:34px}}
+
+  /* ---- responsive ---- */
+  @media(max-width:920px){
+    .pillar-grid,.testi-grid,.tier-grid{grid-template-columns:1fr 1fr !important}
+    .foot-grid{grid-template-columns:1fr 1fr !important}
+  }
+  @media(max-width:780px){
+    .hero-grid{grid-template-columns:1fr !important;text-align:center;padding-bottom:40px !important}
+    .hero-grid .ds-btn,.hero-grid [style*="flex-direction: column"]{margin-left:auto;margin-right:auto}
+    .hero-wash{display:none}
+    .about-grid{grid-template-columns:1fr !important}
+    .hero-fig{order:-1;margin-bottom:14px}
+    .hero-fig > div{width:min(80%,320px) !important}
+    .event-card-wrap{margin-top:28px !important}
+    .meta-row{grid-template-columns:1fr 1fr !important}
+    .meta-row > div{border-right:none !important;border-bottom:1px solid var(--line)}
+  }
+  @media(max-width:600px){
+    .pillar-grid,.testi-grid,.tier-grid,.foot-grid{grid-template-columns:1fr !important}
+    .sticky-date{display:none}
+  }
+  @media(max-width:440px){
+    .meta-row{grid-template-columns:1fr !important}
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="shared.jsx?v=2"></script>
+<script type="text/babel" src="Hero.jsx?v=2"></script>
+<script type="text/babel" src="About.jsx?v=2"></script>
+<script type="text/babel" src="Agenda.jsx?v=2"></script>
+<script type="text/babel" src="Faq.jsx?v=2"></script>
+<script type="text/babel" src="Sponsors.jsx?v=2"></script>
+<script type="text/babel" src="App.jsx?v=2"></script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
