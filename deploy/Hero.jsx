@@ -3,17 +3,6 @@ const { useState: useStateH, useEffect: useEffectH, useRef: useRefH } = React;
 
 const EVENT_TS = new Date("2026-06-26T17:00:00+01:00").getTime(); // 5:00 PM WAT
 
-/* ── tiny animated sparkle ───────────────────────── */
-function Sparkle({ size = 24, top, left, right, bottom, delay = 0, color = "var(--magenta)" }) {
-  return (
-    <span className="material-symbols-rounded" style={{
-      position: "absolute", top, left, right, bottom, fontSize: size, color, opacity: .7,
-      animation: `sparkle-pulse 3s ease-in-out ${delay}s infinite`,
-      fontVariationSettings: "'FILL' 1,'wght' 500,'opsz' 24", pointerEvents: "none", zIndex: 3
-    }}>auto_awesome</span>
-  );
-}
-
 /* ── the hero ────────────────────────────────────── */
 function Hero() {
   const heroRef = useRefH(null);
@@ -197,11 +186,6 @@ function Hero() {
               style={{ position: "absolute", bottom: 16, left: "50%", transform: "translateX(-46%)",
                 height: "105%", objectFit: "contain",
                 filter: "drop-shadow(0 18px 36px rgba(0,0,0,.4))", zIndex: 2 }} />
-
-            {/* floating accents */}
-            <Sparkle size={32} top="1%" right="5%" delay={0} color="rgba(255,255,255,.85)" />
-            <Sparkle size={22} top="12%" left="2%" delay={1.2} color="var(--pink-300)" />
-            <Sparkle size={18} bottom="22%" right="2%" delay={0.6} color="var(--rose)" />
 
             {/* floating date badge */}
             <div style={{ position: "absolute", bottom: "18%", left: "-8%", zIndex: 4,
