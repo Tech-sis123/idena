@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Becoming Her 2.0: IDENA — Deck</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#1a0a14;font-family:'DM Sans',system-ui,sans-serif;overflow:hidden}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #frameWrap{width:1280px;height:720px;transform-origin:center;box-shadow:0 30px 90px rgba(0,0,0,.5);border-radius:6px;overflow:hidden;background:#000}
+  iframe{width:1280px;height:720px;border:0;display:block}
+  .nav{position:fixed;top:50%;transform:translateY(-50%);z-index:10;width:50px;height:50px;border-radius:50%;
+    border:none;background:rgba(255,255,255,.14);color:#fff;font-size:24px;cursor:pointer;backdrop-filter:blur(8px);
+    display:flex;align-items:center;justify-content:center;transition:background .2s}
+  .nav:hover{background:rgba(255,255,255,.28)}
+  #prev{left:22px}#next{right:22px}
+  #count{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:10;color:#fff;
+    background:rgba(0,0,0,.4);padding:7px 16px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.05em;backdrop-filter:blur(8px)}
+  #dots{position:fixed;bottom:58px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .2s}
+  .dot.on{background:#E33286;width:22px;border-radius:999px}
+</style>
+</head>
+<body>
+<div id="stage"><div id="frameWrap"><iframe id="frame" src="01-title.html"></iframe></div></div>
+<button class="nav" id="prev">‹</button>
+<button class="nav" id="next">›</button>
+<div id="dots"></div>
+<div id="count">01 / 06</div>
+<script>
+  const slides=['01-title.html','02-about.html','03-pillars.html','04-sponsor.html','05-testimonials.html','06-closing.html'];
+  let i=parseInt(localStorage.getItem('idena_slide')||'0',10);
+  if(isNaN(i)||i<0||i>=slides.length)i=0;
+  const frame=document.getElementById('frame');
+  const count=document.getElementById('count');
+  const dotsEl=document.getElementById('dots');
+  slides.forEach((_,n)=>{const d=document.createElement('div');d.className='dot';d.onclick=()=>go(n);dotsEl.appendChild(d);});
+  function fit(){
+    const s=Math.min(window.innerWidth/1280,window.innerHeight/720)*0.92;
+    document.getElementById('frameWrap').style.transform='scale('+s+')';
+  }
+  function render(){
+    frame.src=slides[i];
+    count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+    [...dotsEl.children].forEach((d,n)=>d.classList.toggle('on',n===i));
+    localStorage.setItem('idena_slide',i);
+  }
+  function go(n){i=(n+slides.length)%slides.length;render();}
+  document.getElementById('prev').onclick=()=>go(i-1);
+  document.getElementById('next').onclick=()=>go(i+1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft')go(i-1);
+  });
+  window.addEventListener('resize',fit);
+  fit();render();
+</script>
+</body>
+</html>
