@@ -17,7 +17,7 @@ function StickyBar() {
       <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "10px 24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="assets/logo-gear.png" alt="" style={{ height: 30, borderRadius: 6 }} />
+          <img src="../../assets/logo-gear.png" alt="" style={{ height: 30, borderRadius: 6 }} />
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 16, color: "var(--magenta)" }}>IDENA</span>
           <span className="sticky-date" style={{ fontSize: 13, color: "var(--fg2)", fontWeight: 600 }}>· 26 June, 5PM WAT</span>
         </div>
@@ -33,6 +33,15 @@ function StickyBar() {
 }
 
 function App() {
+  React.useEffect(() => {
+    // Hide splash screen smoothly once the app is mounted
+    const splash = document.getElementById("splash");
+    if (splash) {
+      setTimeout(() => splash.classList.add("hide"), 100);
+      setTimeout(() => splash.remove(), 700);
+    }
+  }, []);
+
   return (
     <React.Fragment>
       <StickyBar />
@@ -50,4 +59,4 @@ function App() {
   );
 }
 
-window.App = App;
+Object.assign(window, { App });

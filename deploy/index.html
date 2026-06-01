@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Becoming Her 2.0: IDENA — Register</title>
 <link rel="icon" type="image/png" href="assets/headwrap-silhouette.png">
+<link rel="preload" as="font" type="font/ttf" href="assets/Outfit-VariableFont_wght.ttf" crossorigin>
+<link rel="preload" as="font" type="font/ttf" href="assets/InstrumentSerif-Italic.ttf" crossorigin>
 <link rel="stylesheet" href="colors_and_type.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@20..48,100..700,0..1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL@20..48,100..700,0..1&display=swap">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    background:var(--white);color:var(--ink);font-family:var(--font-body);overflow-x:hidden;
+    background:var(--pink-150);color:var(--ink);font-family:var(--font-body);overflow-x:hidden;
     background-image:
       radial-gradient(ellipse at 15% 8%, rgba(249,231,247,.5) 0%, transparent 50%),
       radial-gradient(ellipse at 85% 25%, rgba(246,217,238,.35) 0%, transparent 45%),
@@ -25,6 +27,12 @@
     background-size:180px 180px;
     opacity:.022;
   }
+  /* Splash screen styling */
+  #splash{position:fixed;inset:0;z-index:9999;background:var(--pink-150);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease, visibility .6s ease;}
+  #splash.hide{opacity:0;visibility:hidden;}
+  .splash-spinner{width:40px;height:40px;border:3px solid rgba(227,50,134,.2);border-top-color:var(--magenta);border-radius:50%;animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
   .material-symbols-rounded{font-family:'Material Symbols Rounded';font-variation-settings:'FILL' 1,'wght' 500,'opsz' 24;vertical-align:middle;line-height:1}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
   section{position:relative}
@@ -60,6 +68,7 @@
 </style>
 </head>
 <body>
+<div id="splash"><div class="splash-spinner"></div></div>
 <div id="root"></div>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
