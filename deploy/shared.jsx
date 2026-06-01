@@ -47,7 +47,7 @@ function RegisterButton({ label = "Register Now", block = false, size = "md", st
        onMouseDown={e => { e.currentTarget.style.transform = "translateY(0) scale(.97)"; }}
        onMouseUp={e => { e.currentTarget.style.transform = "translateY(-2px)"; }}
     >
-      {label} <Icon name="arrow_forward" size={20} />
+      {label} <span style={{ fontSize: "1.1em", lineHeight: 1 }}>→</span>
     </a>
   );
 }
