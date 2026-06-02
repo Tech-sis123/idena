@@ -2,19 +2,19 @@
 const { useState: useStateAg } = React;
 
 const AGENDA = [
-  { time: "5:00 PM", title: "Welcome & opening", desc: "Settling in, framing the evening, meeting the room.", icon: "waving_hand" },
-  { time: "5:15 PM", title: "Main session & fireside conversation", desc: "The heart of IDENA — honest talk on identity, self-worth and becoming.", icon: "forum" },
-  { time: "—", title: "Interactive moment", desc: "Giveaways, raffle draw and quizzes. The room comes alive.", icon: "celebration" },
-  { time: "—", title: "Q&A & community moment", desc: "Your questions, shared reflections, real connection.", icon: "groups" },
-  { time: "—", title: "Closing & next steps", desc: "What to carry forward, and how to stay in the circle.", icon: "flag" },
+  { num: "01", title: "Welcome & opening", desc: "Settling in, framing the evening, meeting the room.", icon: "waving_hand" },
+  { num: "02", title: "Main session & fireside conversation", desc: "The heart of IDENA — honest talk on identity, self-worth and becoming.", icon: "forum" },
+  { num: "03", title: "Interactive moment", desc: "Giveaways, raffle draw and quizzes. The room comes alive.", icon: "celebration" },
+  { num: "04", title: "Q&A & community moment", desc: "Your questions, shared reflections, real connection.", icon: "groups" },
+  { num: "05", title: "Closing & next steps", desc: "What to carry forward, and how to stay in the circle.", icon: "flag" },
 ];
 
 function Agenda() {
   return (
     <section style={{ background: "var(--white)", padding: "clamp(64px,9vw,110px) 0" }}>
       <div className="wrap" style={{ maxWidth: 820 }}>
-        <SectionHead eyebrow="Run of show" title="One hour, worth every minute"
-          sub="A light agenda anchored to the 5:00 PM start. Real, intentional, and built to leave you with something." />
+        <SectionHead eyebrow="Run of show" title="Real, intentional, built to move you"
+          sub="A flow designed to leave you with something — not just a calendar invite you forget." />
         <div style={{ marginTop: 52, position: "relative" }}>
           <div style={{ position: "absolute", left: 27, top: 8, bottom: 8, width: 2,
             background: "linear-gradient(var(--magenta),var(--rose),var(--pink-200))" }} />
@@ -27,9 +27,9 @@ function Agenda() {
                   <Icon name={a.icon} size={26} />
                 </div>
                 <div style={{ flex: 1, paddingTop: 2 }}>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: 12, flexWrap: "wrap" }}>
-                    {a.time !== "—" && <span style={{ fontFamily: "var(--font-display)", fontWeight: 800,
-                      fontSize: 18, color: "var(--magenta)" }}>{a.time}</span>}
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 14, flexWrap: "wrap" }}>
+                    <span style={{ fontFamily: "var(--font-display)", fontWeight: 800,
+                      fontSize: 14, letterSpacing: ".1em", color: "var(--magenta)", opacity: .65 }}>{a.num}</span>
                     <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 19, color: "var(--ink)" }}>{a.title}</h3>
                   </div>
                   <p style={{ fontSize: 15, lineHeight: 1.55, color: "var(--fg2)", marginTop: 5 }}>{a.desc}</p>

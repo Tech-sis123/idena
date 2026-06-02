@@ -6,7 +6,6 @@ html,body{background:#1a0a14}
   width:1280px;height:720px;position:relative;overflow:hidden;
   font-family:var(--font-body);color:var(--ink);
 }
-.material-symbols-rounded{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-variation-settings:'FILL' 1,'wght' 500,'opsz' 24;line-height:1;vertical-align:middle;letter-spacing:normal;text-transform:none;white-space:nowrap;-webkit-font-feature-settings:'liga';font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
 .slide-pad{position:absolute;inset:0;padding:72px 80px;display:flex;flex-direction:column}
 .s-eyebrow{font-weight:700;font-size:18px;letter-spacing:.24em;text-transform:uppercase;color:var(--magenta)}
 .s-display{font-family:var(--font-display);font-weight:800;line-height:.92;letter-spacing:-.01em}
